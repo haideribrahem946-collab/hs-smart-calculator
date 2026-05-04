@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HS Smart Calculator</title>
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#002623">
+
+<style>
+body { margin:0; font-family: Arial; background:#B9A779; }
+header { background:#002623; color:#fff; padding:15px; text-align:center; }
+.box { background:#EDEBE0; padding:15px; margin:20px; border-radius:10px; }
+input { width:100%; padding:10px; }
+button { padding:10px; margin-top:10px; width:100%; background:#054239; color:white; border:none; }
+</style>
+</head>
+
+<body>
+
+<header>HS Smart Calculator</header>
+
+<div class="box">
+<input id="amount" placeholder="أدخل المبلغ">
+<button onclick="convert()">تحويل إلى دولار</button>
+<h2 id="result"></h2>
+</div>
+
+<script>
+function convert(){
+let a=document.getElementById('amount').value
+document.getElementById('result').innerText=(a/13000).toFixed(2)+' USD'
+}
+if('serviceWorker' in navigator){
+navigator.serviceWorker.register('service-worker.js')
+}
+</script>
+
+</body>
+</html>
